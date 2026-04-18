@@ -241,13 +241,13 @@ const App = () => {
           <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
               <a key={item.id} href={`#${item.id}`} className="group flex flex-col items-center relative py-2 no-underline cursor-pointer">
-                <span className={`text-[15px] font-bold tracking-[0.1em] transition-all duration-300 font-bebas leading-none uppercase ${scrolled ? 'text-gray-400 group-hover:text-black' : 'text-gray-400 group-hover:text-white'}`}>
+                <span className={`text-[16px] tracking-[0.15em] transition-all duration-300 font-bebas leading-none uppercase ${scrolled ? 'text-gray-500 group-hover:text-black' : 'text-gray-300 group-hover:text-white'}`}>
                   {item.en}
                 </span>
-                <span className={`text-[11px] font-bold transition-all duration-500 ease-out font-chinese mt-1.5 tracking-wider transform origin-center group-hover:scale-[1.25] group-hover:text-[#B38B3F] group-hover:translate-y-[-2px] text-gray-400`}>
+                <span className={`text-[11px] font-bold transition-all duration-500 ease-out font-chinese mt-2 tracking-widest transform origin-center group-hover:scale-[1.15] group-hover:text-[#B38B3F] group-hover:translate-y-[-2px] text-gray-400`}>
                   {item.zh}
                 </span>
-                <span className="absolute bottom-0 left-1/2 w-0 h-[1.5px] bg-[#B38B3F] transition-all duration-500 group-hover:w-full group-hover:left-0"></span>
+                <span className="absolute -bottom-1 left-1/2 w-0 h-[1.5px] bg-[#B38B3F] transition-all duration-500 group-hover:w-full group-hover:left-0"></span>
               </a>
             ))}
           </div>
@@ -258,8 +258,8 @@ const App = () => {
         </div>
       </nav>
 
-      {/* --- About (Interactive Hero) --- */}
-      <section id="about" className="min-h-screen flex flex-col justify-center relative pt-20 px-10 bg-[#0F0F0F] text-white">
+      {/* --- Home (Interactive Hero) --- */}
+      <section id="home" className="min-h-[90vh] flex flex-col justify-center relative pt-20 px-10 bg-[#0F0F0F] text-white">
         <div 
           className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-1000 ease-out z-0"
           style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
@@ -273,49 +273,177 @@ const App = () => {
               PACKAGE DESIGN / STRUCTURAL ENGINEERING
             </h2>
             
-            <div className="relative mb-20 group">
+            <div className="relative mb-8 group">
               <h1 className="font-bebas text-[18vw] lg:text-[14vw] leading-[0.75] tracking-tight animate-slide-up transition-transform duration-700 hover:scale-[1.02]">
-                STRUCTURAL<br />
-                <span className="text-[#B38B3F]">LOGIC.</span>
+                SUSTAINABLE<br />
+                <span className="text-[#B38B3F]">PACKAGING.</span>
               </h1>
-            </div>
-            
-            <div className="grid lg:grid-cols-12 gap-16 items-end">
-              <div className="lg:col-span-7">
-                <p className="font-chinese text-base md:text-xl font-medium text-gray-400 leading-relaxed animate-fade-in delay-500 tracking-wide">
-                  致力於開發
-                  <span className="relative inline-block mx-1 text-white group/kw1 cursor-default font-bold">
-                    「全紙質緩衝結構」
-                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#B38B3F] transition-all duration-700 group-hover/kw1:w-full"></span>
-                  </span>
-                  與
-                  <span className="relative inline-block mx-1 text-white group/kw2 cursor-default font-bold">
-                    「減塑方案」
-                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#B38B3F] transition-all duration-700 group-hover/kw2:w-full"></span>
-                  </span>
-                  ，<br />
-                  協助產業落實低碳永續目標。
-                </p>
-              </div>
-              
-              <div className="lg:col-span-5 flex justify-end">
-                <div className="flex gap-24 border-t border-white/10 pt-10">
-                  <div className="flex flex-col gap-2 group cursor-default">
-                    <span className="font-bebas text-7xl leading-none transition-all duration-500 group-hover:text-[#B38B3F] group-hover:-translate-y-2">06+</span>
-                    <span className="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase font-outfit">Years Practice</span>
-                  </div>
-                  <div className="flex flex-col gap-2 group cursor-default">
-                    <span className="font-bebas text-7xl leading-none underline decoration-[#B38B3F] transition-all duration-500 group-hover:tracking-widest">M.ID</span>
-                    <span className="text-[10px] font-bold tracking-[0.4em] text-gray-400 uppercase font-outfit">Design Degree</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 opacity-50 cursor-pointer" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 opacity-50 cursor-pointer" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
           <span className="text-xs uppercase tracking-widest text-[#B38B3F] font-bebas">Scroll</span>
+        </div>
+      </section>
+
+      {/* --- About (Detailed Content & Photo) --- */}
+      <section id="about" className="py-40 bg-[#FDFDFD] text-[#121212]">
+        <div className="container mx-auto px-10">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-40">
+            
+            {/* Sticky Left Column */}
+            <div className="lg:col-span-4">
+               <div className="sticky top-40">
+                  <h2 className="font-bebas text-8xl tracking-tight leading-none mb-2 text-black">ABOUT ME</h2>
+                  <span className="font-chinese text-2xl text-[#B38B3F] font-bold italic block mb-12">關於賴以婕</span>
+                  
+                  <div className="aspect-[4/5] w-[60%] max-w-[240px] overflow-hidden mb-12 group bg-gray-100">
+                     <img 
+                       src="/Profolio_photo.jpg" 
+                       alt="Amanda Lai" 
+                       className="w-full h-full object-cover object-left grayscale group-hover:grayscale-0 transition-all duration-1000" 
+                       onError={(e) => {
+                         e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+                       }} 
+                     />
+                  </div>
+                  
+                  <div className="flex gap-16">
+                    <div className="flex flex-col gap-2">
+                       <span className="font-bebas text-5xl leading-none">06+</span>
+                       <span className="text-[10px] font-black tracking-widest text-gray-500 uppercase font-outfit">Years Practice</span>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                       <span className="font-bebas text-5xl leading-none">M.ID</span>
+                       <span className="text-[10px] font-bold tracking-widest text-[#B38B3F] uppercase font-outfit">Design Degree</span>
+                    </div>
+                  </div>
+               </div>
+            </div>
+
+            {/* Right Column Content */}
+            <div className="lg:col-span-8 flex flex-col gap-24 pt-2">
+               {/* 1. Background & Deep Dive */}
+               <div className="flex flex-col gap-10">
+                 <div>
+                   <h3 className="text-[11px] font-bold tracking-[0.3em] font-outfit text-[#B38B3F] uppercase mb-4">Background</h3>
+                   <h4 className="text-3xl md:text-4xl font-chinese font-black mb-8 text-black leading-tight border-b border-black/10 pb-6">包裝設計專業深化 × 專案開發經驗</h4>
+                   <p className="text-[17px] leading-relaxed text-gray-600 font-chinese md:text-justify">
+                     畢業於<span className="text-black font-bold">台灣科技大學工業設計系</span>，擁有 <span className="text-black font-bold">6 年產品與包裝設計實務經驗</span>，熟悉從外觀設計、結構開發到量產製程的完整流程。擅長品牌前期市場調研與定位分析，根據需求進行 2D/3D 設計規劃，執行草模驗證與工程圖繪製，並具備<strong className="text-[#B38B3F] font-bold">『依照預算與成本條件彈性調整設計策略』</strong>的高度靈活應變能力。
+                   </p>
+                 </div>
+               </div>
+
+               {/* 2. Experience Details */}
+               <div>
+                 <h3 className="text-[11px] font-bold tracking-[0.3em] font-outfit text-[#B38B3F] uppercase mb-4">Practical Experience</h3>
+                 <h4 className="text-3xl md:text-4xl font-chinese font-black mb-10 text-black leading-tight border-b border-black/10 pb-6">
+                   實務專案開發經驗
+                 </h4>
+                 
+                 <div className="grid md:grid-cols-2 gap-6">
+                    {/* Card 1: 25 Cases */}
+                    <div className="p-8 border border-black/5 hover:border-[#B38B3F]/40 transition-colors bg-white shadow-sm flex flex-col group md:col-span-2">
+                       <div className="flex flex-col gap-4 mb-6 border-b border-black/5 pb-5">
+                          <span className="text-[11px] font-outfit font-black tracking-widest text-[#B38B3F] uppercase shrink-0">25 Cases</span>
+                          <strong className="text-[19px] text-black font-chinese font-bold group-hover:text-[#B38B3F] transition-colors leading-snug">國際品牌 TWS / HDT / Soundbar 包裝設計提案</strong>
+                       </div>
+                       <p className="text-gray-600 leading-relaxed text-[15px] font-chinese">
+                          根據產品定位提出多元價位 (低/中/高) 包裝設計方案，滿足不同市場需求與品牌策略。
+                          在消費性電子產品 RFQ 階段，主導包裝結構設計、2D 工程圖繪製與初步成本分析，成功協助研發單位<strong className="text-black font-bold">達成約 10% 的包材成本節省</strong>。
+                       </p>
+                    </div>
+
+                    {/* Card 2: 06 Systems */}
+                    <div className="p-8 border border-black/5 hover:border-black/30 transition-colors bg-white shadow-sm flex flex-col group h-full">
+                       <div className="flex flex-col gap-3 mb-5 border-b border-black/5 pb-4">
+                          <span className="text-[11px] font-outfit font-black tracking-widest text-gray-500 uppercase shrink-0">06 Systems</span>
+                          <strong className="text-[17px] text-black font-chinese font-bold group-hover:text-black transition-colors">建立包裝設計與市調資料庫</strong>
+                       </div>
+                       <p className="text-gray-600 leading-relaxed text-[15px] font-chinese">
+                          彙整 TWS、HDT、Soundbar 紙卡內襯結構規格，形成模組化資料庫，加速專案提案效率，並精準對焦市場需求。
+                       </p>
+                    </div>
+
+                    {/* Card 3: 02 Models */}
+                    <div className="p-8 border border-black/5 hover:border-black/30 transition-colors bg-white shadow-sm flex flex-col group h-full">
+                       <div className="flex flex-col gap-3 mb-5 border-b border-black/5 pb-4">
+                          <span className="text-[11px] font-outfit font-black tracking-widest text-gray-500 uppercase shrink-0">02 Models</span>
+                          <strong className="text-[17px] text-black font-chinese font-bold group-hover:text-black transition-colors">參與 HDT 電競耳機開發專案</strong>
+                       </div>
+                       <p className="text-gray-600 leading-relaxed text-[15px] font-chinese">
+                          實際參與兩款 HyperX 電競耳機機型開發，累積從結構設計、打樣修正到量產導入的完整開發經驗。
+                       </p>
+                    </div>
+
+                    {/* Card 4: Collaboration */}
+                    <div className="p-8 border border-black/5 hover:border-black/30 transition-colors bg-gray-50 shadow-sm flex flex-col group h-full md:col-span-2">
+                       <div className="flex flex-col gap-3 mb-5 border-b border-black/5 pb-4">
+                          <span className="text-[11px] font-outfit font-black tracking-widest text-gray-400 uppercase shrink-0">Collaboration</span>
+                          <strong className="text-[17px] text-black font-chinese font-bold group-hover:text-black transition-colors">跨部門與供應商協作能力</strong>
+                       </div>
+                       <p className="text-gray-600 leading-relaxed text-[15px] font-chinese">
+                          能與供應商與工廠密切協作，確保設計順利導入量產並維持品質穩定。
+                       </p>
+                    </div>
+                 </div>
+               </div>
+
+               {/* 3. Career Path */}
+               <div>
+                 <h3 className="text-[11px] font-bold tracking-[0.3em] font-outfit text-[#B38B3F] uppercase mb-4">Vision & Path</h3>
+                 <h4 className="text-3xl md:text-4xl font-chinese font-black mb-10 text-black leading-tight border-b border-black/10 pb-6 flex items-center justify-between">
+                   職涯規劃 
+                   <span className="font-bebas text-5xl text-black/5 font-normal -translate-y-2 pointer-events-none hidden sm:block">CAREER</span>
+                 </h4>
+                 <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-white border border-black/5 p-8 flex flex-col h-full hover:border-[#B38B3F]/30 transition-colors shadow-sm group">
+                       <h4 className="font-bebas text-2xl font-normal tracking-widest text-[#B38B3F] mb-8 flex items-center justify-between border-b border-black/5 pb-4">
+                         Short-term <div className="w-2 h-2 bg-[#B38B3F] rounded-full group-hover:scale-150 transition-transform"></div>
+                       </h4>
+                       <ul className="space-y-6 text-[14px] text-gray-600 font-chinese flex-1">
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-gray-300"></div> <span className="leading-relaxed">深入 ESG 永續議題，探索各類紙材、布料等 CMF 特性與加工技術，建立應用知識庫，並與供應商合作開發環保材質</span></li>
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-[#B38B3F]"></div> <span className="leading-relaxed text-black font-medium">強化紙材結構設計能力，目標能提出具創新性的設計專利</span></li>
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-gray-300"></div> <span className="leading-relaxed">培養紙材成本評估能力，根據需求提出兼顧保護性與成本效益的結構優化方案</span></li>
+                       </ul>
+                    </div>
+                    <div className="bg-[#121212] border border-white/5 p-8 flex flex-col h-full shadow-xl group">
+                       <h4 className="font-bebas text-2xl font-normal tracking-widest text-white mb-8 flex items-center justify-between border-b border-white/10 pb-4">
+                         Long-term <div className="w-2 h-2 bg-white rounded-full group-hover:bg-[#B38B3F] transition-colors"></div>
+                       </h4>
+                       <ul className="space-y-6 text-[14px] text-gray-400 font-chinese flex-1">
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-gray-600"></div> <span className="leading-relaxed">累積跨國與跨部門合作經驗，強化英文聽說讀寫的能力以應對全球化的工作需求</span></li>
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-gray-300"></div> <span className="leading-relaxed text-gray-200 font-medium">持續提升設計落地與製程協作能力，累積更多實戰開發經驗</span></li>
+                          <li className="flex items-start gap-4"><div className="mt-2 min-w-[6px] min-h-[6px] rounded-full bg-gray-600"></div> <span className="leading-relaxed">建立包裝設計與市場趨勢的連結敏感度，結合行銷視角強化整合能力，朝向具策略思維的設計開發整合型人才邁進</span></li>
+                       </ul>
+                    </div>
+                 </div>
+               </div>
+
+               {/* 4. Philosophy */}
+               <div>
+                 <h3 className="text-[11px] font-bold tracking-[0.3em] font-outfit text-[#B38B3F] uppercase mb-4">Mindset</h3>
+                 <h4 className="text-3xl md:text-4xl font-chinese font-black mb-10 text-black leading-tight border-b border-black/10 pb-6">設計理念</h4>
+                 <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      { id: "1", title: "設計應兼具感性與理性", desc: "設計不僅是創造視覺與情感價值，更必須考量製程可行性、技術限制、成本控制與品質穩定性。" },
+                      { id: "2", title: "設計須服務於產品與使用者體驗", desc: "我重視產品本質，關注設計如何實際提升使用者的便利性與品牌價值，讓設計發揮功能性與影響力。" },
+                      { id: "3", title: "重視跨部門合作與溝通效率", desc: "良好的設計來自良好的協作，我樂於與不同角色協同合作，透過積極溝通整合各方需求與資源。" },
+                      { id: "4", title: "持續保持熱情與學習動能", desc: "對我而言，設計不只是工作，更是一種持續探索的過程。始終懷抱熱情與好奇心，樂於貢獻專業，並期待與夥伴一同創造實質價值。" }
+                    ].map(idea => (
+                       <div key={idea.id} className="flex flex-col gap-6 group bg-gray-50/50 p-8 border border-black/5 hover:border-[#B38B3F]/40 hover:bg-white transition-all shadow-sm">
+                          <span className="font-bebas text-5xl text-black/5 group-hover:text-[#B38B3F]/30 transition-colors leading-none tracking-tighter self-start">0{idea.id}</span>
+                          <div>
+                             <h4 className="text-[17px] font-bold font-chinese text-black mb-3 group-hover:text-[#B38B3F] transition-colors">{idea.title}</h4>
+                             <p className="text-[14px] text-gray-600 font-chinese leading-relaxed">{idea.desc}</p>
+                          </div>
+                       </div>
+                    ))}
+                 </div>
+               </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -424,72 +552,6 @@ const App = () => {
         </div>
       )}
 
-      {/* --- Portfolio Projects (Redesigned: Clean & Symmetric & White) --- */}
-      <section id="projects" className="py-60 bg-[#FDFDFD] text-[#121212] relative overflow-hidden">
-        <div className="container mx-auto px-10">
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-24">
-            <div>
-              <h2 className="font-bebas text-9xl tracking-tight leading-none mb-4 text-black">PORTFOLIO</h2>
-              <span className="font-chinese text-2xl text-[#B38B3F] tracking-widest font-bold">作品成就 × 核心領域</span>
-            </div>
-            <span className="text-[12px] font-bold tracking-[0.6em] text-gray-400 uppercase italic font-outfit mt-8 md:mt-0">Symmetric Structural Excellence</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {portfolioProjects.map((project, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => setSelectedProject(project)}
-                className="group relative flex flex-col h-full bg-white border border-black/5 transition-all duration-500 hover:border-[#B38B3F]/50 cursor-pointer shadow-sm hover:shadow-md"
-              >
-                {/* Accent Top Line */}
-                <div className="w-0 h-[2px] bg-[#B38B3F] transition-all duration-700 group-hover:w-full"></div>
-                
-                <div className="p-10 flex flex-col flex-grow">
-                  {/* Category */}
-                  <div className="flex justify-between items-center mb-10">
-                    <span className="font-chinese text-sm font-bold tracking-widest text-[#B38B3F]">{project.zh}</span>
-                    <div className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity">
-                       <Plus size={14} className="text-black" />
-                    </div>
-                  </div>
-
-                  {/* Title & Description */}
-                  <div className="mb-12">
-                    <h3 className="font-bebas text-5xl tracking-[0.1em] mb-6 leading-snug text-black group-hover:text-[#B38B3F] transition-colors uppercase">{project.en}</h3>
-                    <p className="font-chinese text-gray-500 text-lg leading-relaxed line-clamp-4">
-                      {project.desc}
-                    </p>
-                  </div>
-
-                  {/* Tags Aligned to Bottom */}
-                  <div className="mt-auto pt-8 border-t border-black/5">
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-[9px] font-black tracking-widest border border-black/5 px-3 py-1.5 uppercase bg-gray-50 text-gray-500 group-hover:bg-[#B38B3F] group-hover:text-white transition-all">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Subtle Background Mark */}
-                <span className="absolute bottom-6 right-8 font-bebas text-6xl text-black/[0.03] pointer-events-none group-hover:text-[#B38B3F]/10 transition-colors">
-                  {project.en.substring(0, 2).toUpperCase()}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-20 flex justify-center">
-             <button className="flex items-center gap-4 text-[11px] font-black tracking-[0.4em] text-gray-400 hover:text-black transition-colors group uppercase">
-               Scroll for More <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-             </button>
-          </div>
-        </div>
-      </section>
-
       {/* --- Experience Section --- */}
       <section id="experience" className="py-48 bg-[#0F0F0F] text-white border-y border-white/5">
         <div className="container mx-auto px-10">
@@ -583,6 +645,72 @@ const App = () => {
         </div>
       </section>
 
+      {/* --- Portfolio Projects (Redesigned: Clean & Symmetric & White) --- */}
+      <section id="projects" className="py-60 bg-[#FDFDFD] text-[#121212] relative overflow-hidden">
+        <div className="container mx-auto px-10">
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-24">
+            <div>
+              <h2 className="font-bebas text-9xl tracking-tight leading-none mb-4 text-black">PORTFOLIO</h2>
+              <span className="font-chinese text-2xl text-[#B38B3F] tracking-widest font-bold">作品成就 × 核心領域</span>
+            </div>
+            <span className="text-[12px] font-bold tracking-[0.6em] text-gray-400 uppercase italic font-outfit mt-8 md:mt-0">Symmetric Structural Excellence</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {portfolioProjects.map((project, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setSelectedProject(project)}
+                className="group relative flex flex-col h-full bg-white border border-black/5 transition-all duration-500 hover:border-[#B38B3F]/50 cursor-pointer shadow-sm hover:shadow-md"
+              >
+                {/* Accent Top Line */}
+                <div className="w-0 h-[2px] bg-[#B38B3F] transition-all duration-700 group-hover:w-full"></div>
+                
+                <div className="p-10 flex flex-col flex-grow">
+                  {/* Category */}
+                  <div className="flex justify-between items-center mb-10">
+                    <span className="font-chinese text-sm font-bold tracking-widest text-[#B38B3F]">{project.zh}</span>
+                    <div className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity">
+                       <Plus size={14} className="text-black" />
+                    </div>
+                  </div>
+
+                  {/* Title & Description */}
+                  <div className="mb-12">
+                    <h3 className="font-bebas text-5xl tracking-[0.1em] mb-6 leading-snug text-black group-hover:text-[#B38B3F] transition-colors uppercase">{project.en}</h3>
+                    <p className="font-chinese text-gray-500 text-lg leading-relaxed line-clamp-4">
+                      {project.desc}
+                    </p>
+                  </div>
+
+                  {/* Tags Aligned to Bottom */}
+                  <div className="mt-auto pt-8 border-t border-black/5">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="text-[9px] font-black tracking-widest border border-black/5 px-3 py-1.5 uppercase bg-gray-50 text-gray-500 group-hover:bg-[#B38B3F] group-hover:text-white transition-all">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subtle Background Mark */}
+                <span className="absolute bottom-6 right-8 font-bebas text-6xl text-black/[0.03] pointer-events-none group-hover:text-[#B38B3F]/10 transition-colors">
+                  {project.en.substring(0, 2).toUpperCase()}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20 flex justify-center">
+             <button className="flex items-center gap-4 text-[11px] font-black tracking-[0.4em] text-gray-400 hover:text-black transition-colors group uppercase">
+               Scroll for More <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+             </button>
+          </div>
+        </div>
+      </section>
+
       {/* --- Courses & Certifications --- */}
       <section id="courses" className="py-48 bg-[#0F0F0F] text-white border-y border-white/5">
         <div className="container mx-auto px-10">
@@ -639,9 +767,13 @@ const App = () => {
         <div className="container mx-auto px-10">
           <div className="grid lg:grid-cols-12 gap-24 items-center">
             <div className="lg:col-span-5">
-              <h2 className="font-bebas text-7xl tracking-tight mb-12 uppercase italic">Interests <span className="text-3xl text-gray-200 not-italic font-chinese">興趣</span></h2>
-              <p className="text-xl text-gray-500 font-normal leading-relaxed mb-10 font-chinese">
-                工作之餘，我熱衷於健身、馬拉松與登山。這些活動鍛煉了我的意志力與執行力，讓我能以彈性且正向的態度面對設計開發中的挑戰。
+              <h2 className="font-bebas text-7xl tracking-tight mb-12 uppercase italic">Interests <span className="text-3xl text-gray-200 not-italic font-chinese ml-2">興趣嗜好</span></h2>
+              <h3 className="font-chinese text-2xl font-bold mb-4 text-[#B38B3F]">運動訓練</h3>
+              <p className="text-[16px] text-gray-600 font-normal leading-relaxed mb-6 font-chinese">
+                工作之餘，我熱衷於挑戰自我的運動項目，包括健身、馬拉松與登山。
+              </p>
+              <p className="text-[15px] text-gray-500 font-normal leading-relaxed mb-10 font-chinese">
+                這些活動不僅讓我保持身心健康，更讓我在一次次的訓練與突破中，學習如何與自己對話、建立目標並找出實踐方法。對我而言，運動是一種自我探索與壓力釋放的途徑，也深深影響了我在工作上的思考方式與執行力。它讓我更堅定、更有彈性，也讓我在生活中保持熱情與正向的態度。
               </p>
               <div className="flex gap-4">
                  {["Fitness", "Marathon", "Hiking"].map(tag => <span key={tag} className="text-[11px] font-bold tracking-widest border-2 border-black px-5 py-2.5 uppercase hover:bg-black hover:text-white transition-all cursor-default font-outfit">{tag}</span>)}
