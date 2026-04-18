@@ -1,0 +1,1 @@
+You can upload your images to this folder. Files in this `public` directory will be served at the root path (`/`). For example, an image named `my-image.png` uploaded here can be used in your code with `<img src="/my-image.png" alt="..." />`.
